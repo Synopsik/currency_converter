@@ -24,25 +24,25 @@ pub async fn convert(
     cur2: Option<&str>,
     amount: Option<f64>,
 ) -> Option<f64> {
-
+    // Using cur1 and cur2 strings...
     let _cur1 = cur1?;
     let _cur2 = cur2?;
-    // Using cur1 and cur2 strings, 
-    // return real conversion rates
-    let exchange_rate = exchange::get_exchange_rate(_cur1, _cur2).await.unwrap();
-    
     let amount = amount?;
 
+    // Return real conversion rates
+    let exchange_rate = exchange::get_exchange_rate(_cur1, _cur2).await.unwrap();
+
+    // Convert amount
     let converted = amount * exchange_rate;
-    
+
     println!(
-        "Converting {} {} to {}\nConversion Rate: {}\nAmount: {}", 
-        &amount, 
-        &_cur1, 
-        &_cur2, 
+        "Converting {} {} to {}\nConversion Rate: {:.2}\nAmount: {:.2}",
+        &amount,
+        &_cur1,
+        &_cur2,
         &exchange_rate,
         &converted,
     );
-    
+
     Some(converted)
 }
