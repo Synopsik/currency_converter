@@ -4,6 +4,7 @@ pub fn parse_string(string: &str) -> Option<&str> {
     if !string.is_empty() {
         Some(string)
     } else {
+        eprintln!("Please enter a valid currency abbreviation");
         None
     }
 }
@@ -14,6 +15,7 @@ pub fn parse_amount(amount: &str) -> Option<f64> {
     if amount > 0. {
         Some(amount)
     } else {
+        eprintln!("Please enter an amount greater than zero");
         None
     }
 }
@@ -45,4 +47,20 @@ pub async fn convert(
     );
 
     Some(converted)
+}
+
+#[test]
+fn test_parse_string() {
+    assert_eq!(parse_string("usd"), Some("usd"));
+    assert_eq!(parse_string("cad"), Some("cad"));
+    assert_eq!(parse_string("123"), Some("123"));
+    assert_eq!(parse_string(""), None);
+}
+
+#[test]
+fn test_parse_amount() {
+    assert_eq!(parse_amount("10.00"), Some(10.));
+    assert_eq!(parse_amount("99"), Some(99.));
+    assert_eq!(parse_amount("-2"), None);
+    assert_eq!(parse_amount("abc"), None);
 }
