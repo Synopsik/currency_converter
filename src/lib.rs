@@ -38,8 +38,8 @@ pub async fn convert(
     println!(
         "Converting {} {} to {}\nConversion Rate: {:.2}\nAmount: {:.2}",
         &amount,
-        &_cur1,
-        &_cur2,
+        &_cur1.to_uppercase(),
+        &_cur2.to_uppercase(),
         &exchange_rate,
         &converted,
     );

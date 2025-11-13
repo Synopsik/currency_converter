@@ -7,7 +7,7 @@ async fn main() {
 
 
     if args.len() != 3 + 1 {
-        println!("Usage: CUR1 CUR2 AMOUNT");
+        println!("Usage: CURRENCY1 CURRENCY2 AMOUNT");
         return
     }
 
