@@ -1,6 +1,6 @@
 # Currency Converter
 
-This is a CLI tool that uses a keyless API for daily reports to calculate conversions.
+This is a CLI tool that uses a [keyless API](https://github.com/fawazahmed0/exchange-api) for daily reports to calculate conversions.
 
 ## Usage
 
