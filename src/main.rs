@@ -15,7 +15,6 @@ async fn main() {
     let cur2 = parse_string(&args[2]);
     let amount = parse_amount(&args[3]);
 
-    convert(cur1, cur2, amount)
-        .await
-        .unwrap();
+    // Doesn't need to be unwrapped for now since we aren't using the returned variable
+    convert(cur1, cur2, amount).await;
 }
